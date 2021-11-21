@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android-Clean-Arc-Mvvm-Coroutine-Dagger</string>
+
+    <!-- Errors -->
+    <string name="error_occurred">Une erreur est survenue</string>
+    <string name="error_connection">La connexion internet semble interrompue</string>
+    <string name="error_timeout">Une erreur serveur est survenue. Veuillez réessayer ultérieurement.</string>
+</resources>
