@@ -1,4 +1,4 @@
-### Android-Clean-arc-Mvvm-Coroutine-Dagger
+### Android-Clean-Architecture-Mvvm-Coroutine-Compose
 
 This repository contains a detailed sample app that implements Clean Architecture with MVVM  using :
 * Hilt
