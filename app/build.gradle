@@ -1,3 +1,5 @@
+import com.hannibalprojects.sampleproject.Dependencies
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -51,70 +53,55 @@ tasks.withType(Test) {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
-    implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
-    kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation Dependencies.AndroidX.appCompact
 
     //Compose
-    implementation("androidx.compose.ui:ui:$compose_version")
-    // Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:$compose_version")
-    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation("androidx.compose.foundation:foundation:$compose_version")
-    // Material Design
-    implementation("androidx.compose.material:material:$compose_version")
-    // Material design icons
-    implementation("androidx.compose.material:material-icons-core:$compose_version")
-    implementation("androidx.compose.material:material-icons-extended:$compose_version")
-    // Integration with observables
-    implementation("androidx.compose.runtime:runtime-livedata:$compose_version")
-    implementation("io.coil-kt:coil-compose:1.4.0")
-    implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
+    implementation Dependencies.AndroidX.Compose.ui
+    implementation Dependencies.AndroidX.Compose.foundation
+    implementation Dependencies.AndroidX.Compose.material
+    implementation Dependencies.AndroidX.Compose.tooling
+    implementation Dependencies.AndroidX.Navigation.navigationCompose
+    implementation Dependencies.AndroidX.Compose.iconsExtended
+    implementation Dependencies.AndroidX.Compose.iconsCore
+    implementation Dependencies.AndroidX.Compose.liveData
+    implementation Dependencies.AndroidX.Compose.coilCompose
 
-    // UI Tests
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
-
-    implementation "com.google.accompanist:accompanist-swiperefresh:0.19.0"
+    implementation Dependencies.Accompanist.swipeRefresh
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-
-    //glide
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation Dependencies.Squareup.retrofit
+    implementation Dependencies.Squareup.retrofitGson
+    implementation Dependencies.Squareup.okhttp
 
     //Kotin
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation Dependencies.Coroutines.core
 
     //Room
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation Dependencies.Room.runtime
+    implementation Dependencies.Room.ktx
+    kapt Dependencies.Room.compiler
+    annotationProcessor Dependencies.Room.compiler
 
     // Hilt dependencies
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation Dependencies.Hilt.android
+    kapt Dependencies.Hilt.compiler
 
     // TEST
-    testImplementation 'androidx.arch.core:core-testing:2.1.0'
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5_version"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit5_version"
-    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit5_version"
-    testImplementation "org.mockito:mockito-junit-jupiter:3.11.2"
-    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$junit5_version"
-    testImplementation 'org.mockito:mockito-core:3.11.2'
-    testImplementation 'org.assertj:assertj-core:3.20.2'
-    testImplementation 'org.mockito:mockito-inline:2.13.0'
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.1"
+    testImplementation Dependencies.AndroidX.testArchCore
+    testImplementation Dependencies.JUnit.jupiterApi
+    testRuntimeOnly Dependencies.JUnit.jupiterEngine
+    testImplementation Dependencies.JUnit.jupiterParams
+    testRuntimeOnly Dependencies.JUnit.vintageEngine
 
+    testImplementation Dependencies.Mockito.jupiterMockito
+    testImplementation Dependencies.Mockito.mockitoCore
+    testImplementation Dependencies.Mockito.mockitoInline
+
+    testImplementation Dependencies.testMockWebServer
+
+    testImplementation Dependencies.Coroutines.test
+    androidTestImplementation Dependencies.Coroutines.test
+
+    testImplementation Dependencies.testAssert
 
 }
