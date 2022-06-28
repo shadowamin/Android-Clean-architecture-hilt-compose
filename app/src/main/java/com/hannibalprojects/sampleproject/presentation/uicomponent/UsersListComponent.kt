@@ -93,6 +93,7 @@ private fun UsersList(users: List<User>, navigateToDetails: (User) -> Unit) {
 @Composable
 private fun UserItem(user: User, navigateToDetails: (User) -> Unit) {
     Card(
+
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth(),
